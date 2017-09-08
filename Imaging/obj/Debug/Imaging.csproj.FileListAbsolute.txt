@@ -1,0 +1,6 @@
+D:\devel\ImageGrabber\Imaging\obj\Debug\ResolveAssemblyReference.cache
+D:\devel\ImageGrabber\Imaging\bin\Debug\Imaging.dll
+D:\devel\ImageGrabber\Imaging\bin\Debug\Imaging.pdb
+D:\devel\ImageGrabber\Imaging\obj\Debug\Imaging.dll
+D:\devel\ImageGrabber\Imaging\obj\Debug\Imaging.pdb
+D:\devel\ImageGrabber\Imaging\bin\Debug\DirectShowLib-2005.dll

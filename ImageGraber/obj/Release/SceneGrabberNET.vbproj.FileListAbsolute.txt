@@ -1,0 +1,5 @@
+D:\devel\ImageGrabber\ImageGraber\bin\Release\SceneGrabberNET.exe.config
+D:\devel\ImageGrabber\ImageGraber\obj\Release\Interop.DexterLib.dll
+D:\devel\ImageGrabber\ImageGraber\obj\Release\Interop.WMPLib.dll
+D:\devel\ImageGrabber\ImageGraber\obj\Release\AxInterop.WMPLib.dll
+D:\devel\ImageGrabber\ImageGraber\obj\Release\SceneGrabberNET.vbproj.ResolveComReference.cache

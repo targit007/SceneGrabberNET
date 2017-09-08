@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SceneGrabberNET", "ImageGraber\SceneGrabberNET.vbproj", "{2D26A300-83FE-40AE-AD5A-A6B173B125BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imaging", "Imaging\Imaging.csproj", "{B30D5ED3-D3D0-4D81-9098-475490751B82}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SceneGrabberNETSetup", "SceneGrabberNETSetup\SceneGrabberNETSetup.vdproj", "{DDBACC91-705E-4DFE-91DB-948E3D9E33F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Debug|x86.ActiveCfg = Debug|x86
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Debug|x86.Build.0 = Debug|x86
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Release|x86.ActiveCfg = Release|x86
+		{2D26A300-83FE-40AE-AD5A-A6B173B125BB}.Release|x86.Build.0 = Release|x86
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Debug|x86.ActiveCfg = Debug|x86
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Debug|x86.Build.0 = Debug|x86
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Release|x86.ActiveCfg = Release|x86
+		{B30D5ED3-D3D0-4D81-9098-475490751B82}.Release|x86.Build.0 = Release|x86
+		{DDBACC91-705E-4DFE-91DB-948E3D9E33F5}.Debug|Any CPU.ActiveCfg = Debug
+		{DDBACC91-705E-4DFE-91DB-948E3D9E33F5}.Debug|x86.ActiveCfg = Debug
+		{DDBACC91-705E-4DFE-91DB-948E3D9E33F5}.Release|Any CPU.ActiveCfg = Release
+		{DDBACC91-705E-4DFE-91DB-948E3D9E33F5}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
