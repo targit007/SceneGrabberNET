@@ -123,9 +123,8 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="XPTable, Version=1.1.13.17649, Culture=neutral, PublicKeyToken=24950705800d2198">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\XPTable.dll</HintPath>
+    <Reference Include="XPTable">
+      <HintPath>bin\x86\Debug\XPTable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

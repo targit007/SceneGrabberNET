@@ -4,3 +4,10 @@ D:\devel\ImageGrabber\Imaging\bin\Debug\Imaging.pdb
 D:\devel\ImageGrabber\Imaging\obj\Debug\Imaging.dll
 D:\devel\ImageGrabber\Imaging\obj\Debug\Imaging.pdb
 D:\devel\ImageGrabber\Imaging\bin\Debug\DirectShowLib-2005.dll
+E:\devel\net\SceneGrabberNET\Imaging\bin\Debug\Imaging.dll
+E:\devel\net\SceneGrabberNET\Imaging\bin\Debug\Imaging.pdb
+E:\devel\net\SceneGrabberNET\Imaging\bin\Debug\Interop.DexterLib.dll
+E:\devel\net\SceneGrabberNET\Imaging\obj\Debug\Interop.DexterLib.dll
+E:\devel\net\SceneGrabberNET\Imaging\obj\Debug\Imaging.csproj.ResolveComReference.cache
+E:\devel\net\SceneGrabberNET\Imaging\obj\Debug\Imaging.dll
+E:\devel\net\SceneGrabberNET\Imaging\obj\Debug\Imaging.pdb
