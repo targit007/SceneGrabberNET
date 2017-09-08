@@ -18,133 +18,133 @@ Public Class ImageUtil
     End Enum
 
 
-	Public Enum Background
-		<EnumExtendedDescriptionAttribute("Color")> Color = 0
-		<EnumExtendedDescriptionAttribute("Image")> Image = 1
-	End Enum
+    Public Enum Background
+        <EnumExtendedDescriptionAttribute("Color")> Color = 0
+        <EnumExtendedDescriptionAttribute("Image")> Image = 1
+    End Enum
 
-	Public Enum BorderType
-		<EnumExtendedDescriptionAttribute("None")> None = 0
-		<EnumExtendedDescriptionAttribute("Solid")> Solid = 1
-	End Enum
-
-
-	Public Enum ImageSizeMode
-		<EnumExtendedDescriptionAttribute("Custom", "Custom")> Custom = 0
-		<EnumExtendedDescriptionAttribute("Source", "Same as source")> Source = 1
-		<EnumExtendedDescriptionAttribute("Percent", "Percent from source")> Percent = 2
-	End Enum
+    Public Enum BorderType
+        <EnumExtendedDescriptionAttribute("None")> None = 0
+        <EnumExtendedDescriptionAttribute("Solid")> Solid = 1
+    End Enum
 
 
-	Public Enum TextLocation
-		<EnumExtendedDescriptionAttribute("Top Left")> TopLeft = 0
-		<EnumExtendedDescriptionAttribute("Top Center")> TopCenter = 1
-		<EnumExtendedDescriptionAttribute("Top Right")> TopRight = 2
-		<EnumExtendedDescriptionAttribute("Middle Left")> MiddleLeft = 3
-		<EnumExtendedDescriptionAttribute("Middle Center")> MiddleCenter = 4
-		<EnumExtendedDescriptionAttribute("Middle Right")> MiddleRight = 5
-		<EnumExtendedDescriptionAttribute("Bottom Left")> BottomLeft = 6
-		<EnumExtendedDescriptionAttribute("Bottom Center")> BottomCenter = 7
-		<EnumExtendedDescriptionAttribute("Bottom Right")> BottomRight = 8
-	End Enum
-
-	Public Enum DetailTextLocation
-		<EnumExtendedDescriptionAttribute("Left")> TopLeft = 0
-		<EnumExtendedDescriptionAttribute("Center")> TopCenter = 1
-		<EnumExtendedDescriptionAttribute("Right")> TopRight = 2
-	End Enum
+    Public Enum ImageSizeMode
+        <EnumExtendedDescriptionAttribute("Custom", "Custom")> Custom = 0
+        <EnumExtendedDescriptionAttribute("Source", "Same as source")> Source = 1
+        <EnumExtendedDescriptionAttribute("Percent", "Percent from source")> Percent = 2
+    End Enum
 
 
-	Public Enum ImageTyp
-		<EnumExtendedDescriptionAttribute("JPG")> JPG = 0
-		<EnumExtendedDescriptionAttribute("BMP")> BMP = 1
-		<EnumExtendedDescriptionAttribute("PNG")> PNG = 2
-		<EnumExtendedDescriptionAttribute("TIFF")> TIFF = 3
-	End Enum
+    Public Enum TextLocation
+        <EnumExtendedDescriptionAttribute("Top Left")> TopLeft = 0
+        <EnumExtendedDescriptionAttribute("Top Center")> TopCenter = 1
+        <EnumExtendedDescriptionAttribute("Top Right")> TopRight = 2
+        <EnumExtendedDescriptionAttribute("Middle Left")> MiddleLeft = 3
+        <EnumExtendedDescriptionAttribute("Middle Center")> MiddleCenter = 4
+        <EnumExtendedDescriptionAttribute("Middle Right")> MiddleRight = 5
+        <EnumExtendedDescriptionAttribute("Bottom Left")> BottomLeft = 6
+        <EnumExtendedDescriptionAttribute("Bottom Center")> BottomCenter = 7
+        <EnumExtendedDescriptionAttribute("Bottom Right")> BottomRight = 8
+    End Enum
 
-	Public Enum SaveMode
-		<EnumExtendedDescriptionAttribute("Ask", "Ask every time")> ASK = 0
-		<EnumExtendedDescriptionAttribute("Source", "Same as source")> SOURCE_PATH = 1
-		<EnumExtendedDescriptionAttribute("Folder", "Single folder")> SINGLE_PATH = 2
-	End Enum
-
-	Public Enum WatermarkType
-		<EnumExtendedDescriptionAttribute("Text")> TEXT = 0
-		<EnumExtendedDescriptionAttribute("Image")> IMAGE = 1
-	End Enum
-
-	Public Enum WatermarkLocation
-		<EnumExtendedDescriptionAttribute("Top Left")> TopLeft = 0
-		<EnumExtendedDescriptionAttribute("Top Center")> TopCenter = 1
-		<EnumExtendedDescriptionAttribute("Top Right")> TopRight = 2
-		<EnumExtendedDescriptionAttribute("Middle Left")> MiddleLeft = 3
-		<EnumExtendedDescriptionAttribute("Middle Center")> MiddleCenter = 4
-		<EnumExtendedDescriptionAttribute("Middle Right")> MiddleRight = 5
-		<EnumExtendedDescriptionAttribute("Bottom Left")> BottomLeft = 6
-		<EnumExtendedDescriptionAttribute("Bottom Center")> BottomCenter = 7
-		<EnumExtendedDescriptionAttribute("Bottom Right")> BottomRight = 8
-	End Enum
+    Public Enum DetailTextLocation
+        <EnumExtendedDescriptionAttribute("Left")> TopLeft = 0
+        <EnumExtendedDescriptionAttribute("Center")> TopCenter = 1
+        <EnumExtendedDescriptionAttribute("Right")> TopRight = 2
+    End Enum
 
 
-	Public Const FILEOPEN_IMAGE_PATTERN As String = "Images|*.jpg;*.jpeg;*.tiff;*.png;*.bmp|All Files|*.*"
+    Public Enum ImageTyp
+        <EnumExtendedDescriptionAttribute("JPG")> JPG = 0
+        <EnumExtendedDescriptionAttribute("BMP")> BMP = 1
+        <EnumExtendedDescriptionAttribute("PNG")> PNG = 2
+        <EnumExtendedDescriptionAttribute("TIFF")> TIFF = 3
+    End Enum
 
-	Private Shared shadowDownRight As Image = New Bitmap(My.Resources.tshadowdownright)
-	Private Shared shadowDownLeft As Image = New Bitmap(My.Resources.tshadowdownleft)
-	Private Shared shadowDown As Image = New Bitmap(My.Resources.tshadowdown)
-	Private Shared shadowRight As Image = New Bitmap(My.Resources.tshadowright)
-	Private Shared shadowTopRight As Image = New Bitmap(My.Resources.tshadowtopright)
+    Public Enum SaveMode
+        <EnumExtendedDescriptionAttribute("Ask", "Ask every time")> ASK = 0
+        <EnumExtendedDescriptionAttribute("Source", "Same as source")> SOURCE_PATH = 1
+        <EnumExtendedDescriptionAttribute("Folder", "Single folder")> SINGLE_PATH = 2
+    End Enum
 
-	Private Const SHADOW_SIZE As Integer = 5
-	Private Const EXTENSION_MP4 As String = ".mp4"
-	Private Const EXTENSION_MOV As String = ".mov"
+    Public Enum WatermarkType
+        <EnumExtendedDescriptionAttribute("Text")> TEXT = 0
+        <EnumExtendedDescriptionAttribute("Image")> IMAGE = 1
+    End Enum
 
-	'Liefert den benötigiten Encoder
-	Private Shared Function GetEncoder(ByVal format As ImageFormat) As ImageCodecInfo
+    Public Enum WatermarkLocation
+        <EnumExtendedDescriptionAttribute("Top Left")> TopLeft = 0
+        <EnumExtendedDescriptionAttribute("Top Center")> TopCenter = 1
+        <EnumExtendedDescriptionAttribute("Top Right")> TopRight = 2
+        <EnumExtendedDescriptionAttribute("Middle Left")> MiddleLeft = 3
+        <EnumExtendedDescriptionAttribute("Middle Center")> MiddleCenter = 4
+        <EnumExtendedDescriptionAttribute("Middle Right")> MiddleRight = 5
+        <EnumExtendedDescriptionAttribute("Bottom Left")> BottomLeft = 6
+        <EnumExtendedDescriptionAttribute("Bottom Center")> BottomCenter = 7
+        <EnumExtendedDescriptionAttribute("Bottom Right")> BottomRight = 8
+    End Enum
 
-		Dim codecs As ImageCodecInfo() = ImageCodecInfo.GetImageDecoders()
 
-		Dim codec As ImageCodecInfo
-		For Each codec In codecs
-			If codec.FormatID = format.Guid Then
-				Return codec
-			End If
-		Next codec
-		Return Nothing
+    Public Const FILEOPEN_IMAGE_PATTERN As String = "Images|*.jpg;*.jpeg;*.tiff;*.png;*.bmp|All Files|*.*"
 
-	End Function
+    Private Shared shadowDownRight As Image = New Bitmap(My.Resources.tshadowdownright)
+    Private Shared shadowDownLeft As Image = New Bitmap(My.Resources.tshadowdownleft)
+    Private Shared shadowDown As Image = New Bitmap(My.Resources.tshadowdown)
+    Private Shared shadowRight As Image = New Bitmap(My.Resources.tshadowright)
+    Private Shared shadowTopRight As Image = New Bitmap(My.Resources.tshadowtopright)
 
-	'Bild resizen mit Max X oder Y auf 100
+    Private Const SHADOW_SIZE As Integer = 5
+    Private Const EXTENSION_MP4 As String = ".mp4"
+    Private Const EXTENSION_MOV As String = ".mov"
 
-	Public Shared Function resizeMax100(ByVal img As Image) As Image
-		Dim aspectRatio As Double = 0
-		Dim x As Integer = 0
-		Dim y As Integer = 0
+    'Liefert den benötigiten Encoder
+    Private Shared Function GetEncoder(ByVal format As ImageFormat) As ImageCodecInfo
 
-		If (img.Width > img.Height) Then
-			aspectRatio = img.Width / img.Height
-			x = 120
-			y = x / aspectRatio
-		Else
-			aspectRatio = img.Height / img.Width
-			y = 120
-			x = y / aspectRatio
-		End If
-		Return resize(img, x, y, True)
-	End Function
+        Dim codecs As ImageCodecInfo() = ImageCodecInfo.GetImageDecoders()
 
-	'Bild resizen
-	Public Shared Function resize(ByVal img As Image, ByVal x As Integer, ByVal y As Integer, ByVal highQuality As Boolean) As Image
-		Dim bm_dest As New Bitmap(x, y)
-		Dim gr As Graphics = Graphics.FromImage(bm_dest)
-		gr = setGraphicsMode(gr, highQuality)
-		gr.DrawImage(img, New Rectangle(0, 0, x, y))
-		gr.Dispose()
-		Return bm_dest
-	End Function
+        Dim codec As ImageCodecInfo
+        For Each codec In codecs
+            If codec.FormatID = format.Guid Then
+                Return codec
+            End If
+        Next codec
+        Return Nothing
 
-	'Generiert den eigentlichen zusammengestellten Sceneshot
+    End Function
 
-    Public Shared Function generateSceneshotImage(ByVal sceneShotData As SceneshotsHolder, ByVal conf As Configuration, ByVal highQuality As Boolean) As Image       
+    'Bild resizen mit Max X oder Y auf 100
+
+    Public Shared Function resizeMax100(ByVal img As Image) As Image
+        Dim aspectRatio As Double = 0
+        Dim x As Integer = 0
+        Dim y As Integer = 0
+
+        If (img.Width > img.Height) Then
+            aspectRatio = img.Width / img.Height
+            x = 120
+            y = x / aspectRatio
+        Else
+            aspectRatio = img.Height / img.Width
+            y = 120
+            x = y / aspectRatio
+        End If
+        Return resize(img, x, y, True)
+    End Function
+
+    'Bild resizen
+    Public Shared Function resize(ByVal img As Image, ByVal x As Integer, ByVal y As Integer, ByVal highQuality As Boolean) As Image
+        Dim bm_dest As New Bitmap(x, y)
+        Dim gr As Graphics = Graphics.FromImage(bm_dest)
+        gr = setGraphicsMode(gr, highQuality)
+        gr.DrawImage(img, New Rectangle(0, 0, x, y))
+        gr.Dispose()
+        Return bm_dest
+    End Function
+
+    'Generiert den eigentlichen zusammengestellten Sceneshot
+
+    Public Shared Function generateSceneshotImage(ByVal sceneShotData As SceneshotsHolder, ByVal conf As Configuration, ByVal highQuality As Boolean) As Image
         Dim conf_offset_X As Integer = conf.gapwidth
         Dim conf_offset_Y As Integer = conf.gapheight
         Dim conf_coloums As Integer = conf.columns
@@ -324,448 +324,448 @@ Public Class ImageUtil
         Return bmp
     End Function
 
-	'Labelt ein Image
+    'Labelt ein Image
 
-	Private Shared Function labels(ByVal img As Image, ByVal label As String, ByVal font As Font, ByVal col As Color, ByVal location As TextLocation, ByVal highQuality As Boolean) As Image
-		'Bildbereich wo der Text gezeichnet werden soll
-		Dim g As Graphics = Graphics.FromImage(img)
-		g = setGraphicsMode(g, highQuality)
-		drawString(g, img.Width, img.Height, font.Size / 2, font.Size / 2, location, font, col, label)
-		g.Dispose()
-		Return img
-	End Function
-
-
-	Private Shared Sub drawString(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal offset_x As Long, _
-									ByVal offset_y As Long, ByVal location As TextLocation, ByVal font As Font, ByVal color As Color, ByVal text As String)
-
-		Dim r As Rectangle = New Rectangle(offset_x, offset_y, width - 2 * offset_x, height - 2 * offset_y)
-		Dim sFormat As StringFormat = New StringFormat(StringFormat.GenericTypographic)
-		sFormat.FormatFlags = sFormat.FormatFlags Or StringFormatFlags.NoClip Or StringFormatFlags.NoWrap
-
-		Select Case location
-			Case TextLocation.TopLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.TopRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.TopCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.MiddleLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.MiddleCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.MiddleRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.BottomLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Far
-			Case TextLocation.BottomCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Far
-			Case TextLocation.BottomRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Far
-		End Select
-
-		g.DrawString(text, font, New SolidBrush(color), r, sFormat)
-
-	End Sub
-
-	Private Shared Sub drawWatermarkString(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal offset_x As Long, _
-			ByVal offset_y As Long, ByVal location As WatermarkLocation, ByVal font As Font, ByVal color As Color, ByVal text As String)
-
-		Dim r1 As Rectangle = New Rectangle(offset_x + 1, offset_y + 1, width - 2 * offset_x, height - 2 * offset_y)
-		Dim r2 As Rectangle = New Rectangle(offset_x, offset_y, width - 2 * offset_x, height - 2 * offset_y)
-		Dim sFormat As StringFormat = New StringFormat(StringFormat.GenericTypographic)
-		sFormat.FormatFlags = sFormat.FormatFlags Or StringFormatFlags.NoClip Or StringFormatFlags.NoWrap
-
-		Select Case location
-			Case TextLocation.TopLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.TopRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.TopCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Near
-			Case TextLocation.MiddleLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.MiddleCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.MiddleRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Center
-			Case TextLocation.BottomLeft
-				sFormat.Alignment = StringAlignment.Near
-				sFormat.LineAlignment = StringAlignment.Far
-			Case TextLocation.BottomCenter
-				sFormat.Alignment = StringAlignment.Center
-				sFormat.LineAlignment = StringAlignment.Far
-			Case TextLocation.BottomRight
-				sFormat.Alignment = StringAlignment.Far
-				sFormat.LineAlignment = StringAlignment.Far
-		End Select
+    Private Shared Function labels(ByVal img As Image, ByVal label As String, ByVal font As Font, ByVal col As Color, ByVal location As TextLocation, ByVal highQuality As Boolean) As Image
+        'Bildbereich wo der Text gezeichnet werden soll
+        Dim g As Graphics = Graphics.FromImage(img)
+        g = setGraphicsMode(g, highQuality)
+        drawString(g, img.Width, img.Height, font.Size / 2, font.Size / 2, location, font, col, label)
+        g.Dispose()
+        Return img
+    End Function
 
 
-		'Dim semiTransBrush2 As SolidBrush = New SolidBrush(Color.FromArgb(153, 0, 0, 0))
-		Dim semiTransBrush2 As SolidBrush = New SolidBrush(color.FromArgb(153, color.R, color.G, color.B))
+    Private Shared Sub drawString(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal offset_x As Long,
+                                    ByVal offset_y As Long, ByVal location As TextLocation, ByVal font As Font, ByVal color As Color, ByVal text As String)
 
-		g.DrawString(text, font, semiTransBrush2, r1, sFormat)
-		'Dim semiTransBrush As SolidBrush = New SolidBrush(Color.FromArgb(153, 255, 255, 255))
-		Dim semiTransBrush As SolidBrush = New SolidBrush(color.FromArgb(153, 255, 255, 255))
-		g.DrawString(text, font, semiTransBrush, r2, sFormat)
+        Dim r As Rectangle = New Rectangle(offset_x, offset_y, width - 2 * offset_x, height - 2 * offset_y)
+        Dim sFormat As StringFormat = New StringFormat(StringFormat.GenericTypographic)
+        sFormat.FormatFlags = sFormat.FormatFlags Or StringFormatFlags.NoClip Or StringFormatFlags.NoWrap
 
-	End Sub
+        Select Case location
+            Case TextLocation.TopLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.TopRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.TopCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.MiddleLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.MiddleCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.MiddleRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.BottomLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Far
+            Case TextLocation.BottomCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Far
+            Case TextLocation.BottomRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Far
+        End Select
 
+        g.DrawString(text, font, New SolidBrush(color), r, sFormat)
 
-	Private Shared Sub drawWatermarkImage(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal x As Long, ByVal y As Long, ByVal location As WatermarkLocation, ByVal image As String)
-		If Util.fileExists(image) Then
-			Dim img As Image = Bitmap.FromFile(image)
-			Dim gWatermark As Graphics = Graphics.FromImage(img)
-			Dim imgAttr As ImageAttributes = New ImageAttributes
-			Dim colorMap As ColorMap = New ColorMap
-			colorMap.OldColor = Color.FromArgb(255, 0, 255, 0)
-			colorMap.NewColor = Color.FromArgb(0, 0, 0, 0)
-			Dim remapTable() As ColorMap = {colorMap}
-			imgAttr.SetRemapTable(remapTable, ColorAdjustType.Bitmap)
-			Dim colorMatrixElements As Single()() = {New Single() {1.0F, 0.0F, 0.0F, 0.0F, 0.0F}, _
-			   New Single() {0.0F, 1.0F, 0.0F, 0.0F, 0.0F}, _
-			   New Single() {0.0F, 0.0F, 1.0F, 0.0F, 0.0F}, _
-			   New Single() {0.0F, 0.0F, 0.0F, 0.3F, 0.0F}, _
-			   New Single() {0.0F, 0.0F, 0.0F, 0.0F, 1.0F}}
-			Dim wmColorMatrix As ColorMatrix = New ColorMatrix(colorMatrixElements)
-			imgAttr.SetColorMatrix(wmColorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap)
+    End Sub
 
-			Dim _x As Integer
-			Dim _y As Integer
+    Private Shared Sub drawWatermarkString(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal offset_x As Long,
+            ByVal offset_y As Long, ByVal location As WatermarkLocation, ByVal font As Font, ByVal color As Color, ByVal text As String)
 
-			Select Case location
-				Case WatermarkLocation.TopLeft
-					_x = x
-					_y = y
-				Case WatermarkLocation.TopCenter
-					_x = width / 2 - img.Width / 2
-					_y = y
-				Case WatermarkLocation.TopRight
-					_x = width - img.Width - x
-					_y = y
-				Case WatermarkLocation.MiddleLeft
-					_x = x
-					_y = height / 2 - img.Height / 2
-				Case WatermarkLocation.MiddleCenter
-					_x = width / 2 - img.Width / 2
-					_y = height / 2 - img.Height / 2
-				Case WatermarkLocation.MiddleRight
-					_x = width - img.Width - x
-					_y = height / 2 - img.Height / 2
-				Case WatermarkLocation.BottomLeft
-					_x = x
-					_y = height - img.Height - y
-				Case WatermarkLocation.BottomCenter
-					_x = width / 2 - img.Width / 2
-					_y = height - img.Height - y
-				Case WatermarkLocation.BottomRight
-					_x = width - img.Width - x
-					_y = height - img.Height - y
-			End Select
+        Dim r1 As Rectangle = New Rectangle(offset_x + 1, offset_y + 1, width - 2 * offset_x, height - 2 * offset_y)
+        Dim r2 As Rectangle = New Rectangle(offset_x, offset_y, width - 2 * offset_x, height - 2 * offset_y)
+        Dim sFormat As StringFormat = New StringFormat(StringFormat.GenericTypographic)
+        sFormat.FormatFlags = sFormat.FormatFlags Or StringFormatFlags.NoClip Or StringFormatFlags.NoWrap
 
-			g.DrawImage(img, _
-			  New Rectangle(_x, _y, img.Width, img.Height), _
-			  0, _
-			  0, _
-			  img.Width, _
-			  img.Height, _
-			  GraphicsUnit.Pixel, _
-			  imgAttr)
-
-		End If
-	End Sub
-
-
-
-
-	Private Shared Function border(ByVal img As Image, ByVal size As Integer, ByVal color As Color, ByVal highQuality As Boolean) As Image
-		Dim g As Graphics = Graphics.FromImage(img)
-		g = setGraphicsMode(g, highQuality)
-		' weißen Rahmen zeichnen    
-		Dim r As Rectangle
-		'If size Mod 2 > 0 Then
-		r = New Rectangle(0, 0, img.Width - 1, img.Height - 1)
-		'Else
-		'	r = New Rectangle(1, 1, img.Width - 2, img.Height - 2)
-		'End If
-		g.DrawRectangle(New Pen(color, CDbl(size)), r)
-		g.Dispose()
-		Return img
-	End Function
+        Select Case location
+            Case TextLocation.TopLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.TopRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.TopCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Near
+            Case TextLocation.MiddleLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.MiddleCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.MiddleRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Center
+            Case TextLocation.BottomLeft
+                sFormat.Alignment = StringAlignment.Near
+                sFormat.LineAlignment = StringAlignment.Far
+            Case TextLocation.BottomCenter
+                sFormat.Alignment = StringAlignment.Center
+                sFormat.LineAlignment = StringAlignment.Far
+            Case TextLocation.BottomRight
+                sFormat.Alignment = StringAlignment.Far
+                sFormat.LineAlignment = StringAlignment.Far
+        End Select
 
 
+        'Dim semiTransBrush2 As SolidBrush = New SolidBrush(Color.FromArgb(153, 0, 0, 0))
+        Dim semiTransBrush2 As SolidBrush = New SolidBrush(color.FromArgb(153, color.R, color.G, color.B))
 
-	Private Shared Sub watermark(ByVal g As Graphics, ByVal type As ImageUtil.WatermarkType, ByVal location As ImageUtil.WatermarkLocation, ByVal width As Integer, ByVal height As Integer, ByVal x As Integer, ByVal y As Integer, ByVal text As String, ByVal font As Font, ByVal color As Color, ByVal image As String)
-		'Text
-		If type = WatermarkType.TEXT Then
-			drawWatermarkString(g, width, height, x, y, location, font, color, text)
-		Else
-			drawWatermarkImage(g, width, height, x, y, location, image)
-		End If
+        g.DrawString(text, font, semiTransBrush2, r1, sFormat)
+        'Dim semiTransBrush As SolidBrush = New SolidBrush(Color.FromArgb(153, 255, 255, 255))
+        Dim semiTransBrush As SolidBrush = New SolidBrush(color.FromArgb(153, 255, 255, 255))
+        g.DrawString(text, font, semiTransBrush, r2, sFormat)
 
-	End Sub
-
+    End Sub
 
 
-	' Setzt den Rahmen eines Bildes (inkl. Schatten)
+    Private Shared Sub drawWatermarkImage(ByRef g As Graphics, ByVal width As Long, ByVal height As Long, ByVal x As Long, ByVal y As Long, ByVal location As WatermarkLocation, ByVal image As String)
+        If Util.fileExists(image) Then
+            Dim img As Image = Bitmap.FromFile(image)
+            Dim gWatermark As Graphics = Graphics.FromImage(img)
+            Dim imgAttr As ImageAttributes = New ImageAttributes
+            Dim colorMap As ColorMap = New ColorMap
+            colorMap.OldColor = Color.FromArgb(255, 0, 255, 0)
+            colorMap.NewColor = Color.FromArgb(0, 0, 0, 0)
+            Dim remapTable() As ColorMap = {colorMap}
+            imgAttr.SetRemapTable(remapTable, ColorAdjustType.Bitmap)
+            Dim colorMatrixElements As Single()() = {New Single() {1.0F, 0.0F, 0.0F, 0.0F, 0.0F},
+               New Single() {0.0F, 1.0F, 0.0F, 0.0F, 0.0F},
+               New Single() {0.0F, 0.0F, 1.0F, 0.0F, 0.0F},
+               New Single() {0.0F, 0.0F, 0.0F, 0.3F, 0.0F},
+               New Single() {0.0F, 0.0F, 0.0F, 0.0F, 1.0F}}
+            Dim wmColorMatrix As ColorMatrix = New ColorMatrix(colorMatrixElements)
+            imgAttr.SetColorMatrix(wmColorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap)
 
-	Private Shared Function shadow(ByVal img As Image, ByVal col As Color, ByVal backgroundimage As Boolean, ByVal highQuality As Boolean) As Image
+            Dim _x As Integer
+            Dim _y As Integer
 
-		Dim shadowMargin As Integer = 0
+            Select Case location
+                Case WatermarkLocation.TopLeft
+                    _x = x
+                    _y = y
+                Case WatermarkLocation.TopCenter
+                    _x = width / 2 - img.Width / 2
+                    _y = y
+                Case WatermarkLocation.TopRight
+                    _x = width - img.Width - x
+                    _y = y
+                Case WatermarkLocation.MiddleLeft
+                    _x = x
+                    _y = height / 2 - img.Height / 2
+                Case WatermarkLocation.MiddleCenter
+                    _x = width / 2 - img.Width / 2
+                    _y = height / 2 - img.Height / 2
+                Case WatermarkLocation.MiddleRight
+                    _x = width - img.Width - x
+                    _y = height / 2 - img.Height / 2
+                Case WatermarkLocation.BottomLeft
+                    _x = x
+                    _y = height - img.Height - y
+                Case WatermarkLocation.BottomCenter
+                    _x = width / 2 - img.Width / 2
+                    _y = height - img.Height - y
+                Case WatermarkLocation.BottomRight
+                    _x = width - img.Width - x
+                    _y = height - img.Height - y
+            End Select
 
-		Dim bmp As Bitmap = New Bitmap(img.Width + SHADOW_SIZE, img.Height + SHADOW_SIZE)
-		Dim g As Graphics = Graphics.FromImage(bmp)
-		g = setGraphicsMode(g, highQuality)
+            g.DrawImage(img,
+              New Rectangle(_x, _y, img.Width, img.Height),
+              0,
+              0,
+              img.Width,
+              img.Height,
+              GraphicsUnit.Pixel,
+              imgAttr)
 
-		If Not backgroundimage Then
-			g.Clear(col)
-		End If
-		g.DrawImage(img, 0, 0, img.Width, img.Height)
-		g.Dispose()
-
-		g = Graphics.FromImage(bmp)
-		g = setGraphicsMode(g, highQuality)
-
-		Dim shadowRightBrush As TextureBrush = New TextureBrush(shadowRight, WrapMode.Tile)
-		Dim shadowDownBrush As TextureBrush = New TextureBrush(shadowDown, WrapMode.Tile)
-
-		shadowDownBrush.TranslateTransform(0, img.Height)
-		shadowRightBrush.TranslateTransform(img.Width, 0)
-
-		Dim shadowDownRectangle As Rectangle = New Rectangle( _
-		  SHADOW_SIZE + shadowMargin, _
-		  img.Height, _
-		  img.Width - (SHADOW_SIZE * 1 + shadowMargin), SHADOW_SIZE)
-
-		Dim shadowRightRectangle As Rectangle = New Rectangle( _
-		  img.Width, _
-		  SHADOW_SIZE - shadowMargin, SHADOW_SIZE, _
-		  img.Height - (SHADOW_SIZE * 1 + shadowMargin))
-
-		g.FillRectangle(shadowDownBrush, shadowDownRectangle)
-		g.FillRectangle(shadowRightBrush, shadowRightRectangle)
-
-		g.DrawImage(shadowTopRight, New Rectangle(img.Width, shadowMargin, SHADOW_SIZE, SHADOW_SIZE))
-		g.DrawImage(shadowDownRight, New Rectangle(img.Width, img.Height, SHADOW_SIZE, SHADOW_SIZE))
-		g.DrawImage(shadowDownLeft, New Rectangle(shadowMargin, img.Height, SHADOW_SIZE, SHADOW_SIZE))
-
-		shadowDownBrush.Dispose()
-		shadowRightBrush.Dispose()
-		g.Dispose()
-
-		Return bmp
-	End Function
-
-	Public Shared Function saveImages(ByVal sceneshots As List(Of Sceneshot), ByVal config As Configuration) As Boolean
-		Dim rc As Boolean = False
-		Dim filePath As String = Nothing
-		filePath = Util.FolderBrowserDialog("Save Images", filePath)
-		If (Not filePath Is Nothing) Then
-			Dim jgpEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
-			Dim params As EncoderParameters = New EncoderParameters(2)
-			params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
-			If config.progressive Then
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
-			Else
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
-			End If
-			Application.DoEvents()
-			For Each s In sceneshots
-				Dim filename As String = s.label.Replace(":", "_") + getExtensionFromImageFormat(config.imageFormat)
-				filename = filePath + Path.DirectorySeparatorChar + filename
-				s.image.Save(filename, jgpEncoder, params)
-				Application.DoEvents()
-			Next
-			rc = True
-		End If
-		Return rc
-	End Function
-
-	'Speichert ein einzelnes Bild
-	Public Shared Function saveSingleImage(ByVal s As Sceneshot, ByVal config As Configuration) As Boolean
-		Dim rc As Boolean = False
-		Dim filename As String = Nothing
-
-		Dim dlg As New SaveFileDialog
-		dlg.Title = "Save Image"
-		dlg.Filter = FILEOPEN_IMAGE_PATTERN
-		Try
-			dlg.FileName = s.label.Replace(":", "_") + getExtensionFromImageFormat(config.imageFormat)
-		Catch ex As Exception
-			Console.WriteLine(ex.Message)
-		End Try
-		If dlg.ShowDialog() = DialogResult.OK And Not String.IsNullOrEmpty(dlg.FileName) Then
-			filename = dlg.FileName
-		End If
-
-		If Not filename Is Nothing Then
-			Dim jgpEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
-			Dim params As EncoderParameters = New EncoderParameters(2)
-			params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
-			If config.progressive Then
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
-			Else
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
-			End If
-			Application.DoEvents()
-			s.image.Save(filename, jgpEncoder, params)
-			Application.DoEvents()
-			rc = True
-		End If
-		Return rc
-	End Function
-
-
-	Public Shared Function saveImage(ByVal sceneData As SceneshotsHolder) As Boolean
-		Return saveImage(sceneData, False)
-	End Function
-
-
-	'Generiert den Filename für das finale Image
-	Private Shared Function generateFilePathForFinalSceneshots(ByVal config As Configuration, ByVal movieinfo As MovieInfo) As String
-		Dim filePath As String = Nothing
-		Dim fileName As String = Nothing
-
-		Select Case config.naming
-			Case ImageUtil.Naming.Filename
-				fileName = movieinfo.getFileName
-			Case ImageUtil.Naming.Filepath
-				fileName = movieinfo.getCompleteName.Replace(Path.DirectorySeparatorChar, "-").Replace(Path.VolumeSeparatorChar, "")
-		End Select
-
-		Select Case config.savemode
-			Case SaveMode.SINGLE_PATH
-				filePath = config.savepath + Path.DirectorySeparatorChar + fileName + getExtensionFromImageFormat(config.imageFormat)
-			Case SaveMode.SOURCE_PATH
-				filePath = New FileInfo(movieinfo.getCompleteName).DirectoryName + Path.DirectorySeparatorChar + fileName + getExtensionFromImageFormat(config.imageFormat)
-
-		End Select
-
-		Return filePath
-
-	End Function
+        End If
+    End Sub
 
 
 
 
+    Private Shared Function border(ByVal img As Image, ByVal size As Integer, ByVal color As Color, ByVal highQuality As Boolean) As Image
+        Dim g As Graphics = Graphics.FromImage(img)
+        g = setGraphicsMode(g, highQuality)
+        ' weißen Rahmen zeichnen    
+        Dim r As Rectangle
+        'If size Mod 2 > 0 Then
+        r = New Rectangle(0, 0, img.Width - 1, img.Height - 1)
+        'Else
+        '	r = New Rectangle(1, 1, img.Width - 2, img.Height - 2)
+        'End If
+        g.DrawRectangle(New Pen(color, CDbl(size)), r)
+        g.Dispose()
+        Return img
+    End Function
 
 
-	'Speichert den Sceneshot
-	Public Shared Function saveImage(ByVal sceneData As SceneshotsHolder, ByVal batch As Boolean) As Boolean
-		Dim rc As Boolean = False
-		Dim filename As String = Nothing
-		Dim showDialog As Boolean = False
+
+    Private Shared Sub watermark(ByVal g As Graphics, ByVal type As ImageUtil.WatermarkType, ByVal location As ImageUtil.WatermarkLocation, ByVal width As Integer, ByVal height As Integer, ByVal x As Integer, ByVal y As Integer, ByVal text As String, ByVal font As Font, ByVal color As Color, ByVal image As String)
+        'Text
+        If type = WatermarkType.TEXT Then
+            drawWatermarkString(g, width, height, x, y, location, font, color, text)
+        Else
+            drawWatermarkImage(g, width, height, x, y, location, image)
+        End If
+
+    End Sub
+
+
+
+    ' Setzt den Rahmen eines Bildes (inkl. Schatten)
+
+    Private Shared Function shadow(ByVal img As Image, ByVal col As Color, ByVal backgroundimage As Boolean, ByVal highQuality As Boolean) As Image
+
+        Dim shadowMargin As Integer = 0
+
+        Dim bmp As Bitmap = New Bitmap(img.Width + SHADOW_SIZE, img.Height + SHADOW_SIZE)
+        Dim g As Graphics = Graphics.FromImage(bmp)
+        g = setGraphicsMode(g, highQuality)
+
+        If Not backgroundimage Then
+            g.Clear(col)
+        End If
+        g.DrawImage(img, 0, 0, img.Width, img.Height)
+        g.Dispose()
+
+        g = Graphics.FromImage(bmp)
+        g = setGraphicsMode(g, highQuality)
+
+        Dim shadowRightBrush As TextureBrush = New TextureBrush(shadowRight, WrapMode.Tile)
+        Dim shadowDownBrush As TextureBrush = New TextureBrush(shadowDown, WrapMode.Tile)
+
+        shadowDownBrush.TranslateTransform(0, img.Height)
+        shadowRightBrush.TranslateTransform(img.Width, 0)
+
+        Dim shadowDownRectangle As Rectangle = New Rectangle(
+          SHADOW_SIZE + shadowMargin,
+          img.Height,
+          img.Width - (SHADOW_SIZE * 1 + shadowMargin), SHADOW_SIZE)
+
+        Dim shadowRightRectangle As Rectangle = New Rectangle(
+          img.Width,
+          SHADOW_SIZE - shadowMargin, SHADOW_SIZE,
+          img.Height - (SHADOW_SIZE * 1 + shadowMargin))
+
+        g.FillRectangle(shadowDownBrush, shadowDownRectangle)
+        g.FillRectangle(shadowRightBrush, shadowRightRectangle)
+
+        g.DrawImage(shadowTopRight, New Rectangle(img.Width, shadowMargin, SHADOW_SIZE, SHADOW_SIZE))
+        g.DrawImage(shadowDownRight, New Rectangle(img.Width, img.Height, SHADOW_SIZE, SHADOW_SIZE))
+        g.DrawImage(shadowDownLeft, New Rectangle(shadowMargin, img.Height, SHADOW_SIZE, SHADOW_SIZE))
+
+        shadowDownBrush.Dispose()
+        shadowRightBrush.Dispose()
+        g.Dispose()
+
+        Return bmp
+    End Function
+
+    Public Shared Function saveImages(ByVal sceneshots As List(Of Sceneshot), ByVal config As Configuration) As Boolean
+        Dim rc As Boolean = False
+        Dim filePath As String = Nothing
+        filePath = Util.FolderBrowserDialog("Save Images", filePath)
+        If (Not filePath Is Nothing) Then
+            Dim jgpEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
+            Dim params As EncoderParameters = New EncoderParameters(2)
+            params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
+            If config.progressive Then
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
+            Else
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
+            End If
+            Application.DoEvents()
+            For Each s In sceneshots
+                Dim filename As String = s.label.Replace(":", "_") + getExtensionFromImageFormat(config.imageFormat)
+                filename = filePath + Path.DirectorySeparatorChar + filename
+                s.image.Save(filename, jgpEncoder, params)
+                Application.DoEvents()
+            Next
+            rc = True
+        End If
+        Return rc
+    End Function
+
+    'Speichert ein einzelnes Bild
+    Public Shared Function saveSingleImage(ByVal s As Sceneshot, ByVal config As Configuration) As Boolean
+        Dim rc As Boolean = False
+        Dim filename As String = Nothing
+
+        Dim dlg As New SaveFileDialog
+        dlg.Title = "Save Image"
+        dlg.Filter = FILEOPEN_IMAGE_PATTERN
+        Try
+            dlg.FileName = s.label.Replace(":", "_") + getExtensionFromImageFormat(config.imageFormat)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        If dlg.ShowDialog() = DialogResult.OK And Not String.IsNullOrEmpty(dlg.FileName) Then
+            filename = dlg.FileName
+        End If
+
+        If Not filename Is Nothing Then
+            Dim jgpEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
+            Dim params As EncoderParameters = New EncoderParameters(2)
+            params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
+            If config.progressive Then
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
+            Else
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
+            End If
+            Application.DoEvents()
+            s.image.Save(filename, jgpEncoder, params)
+            Application.DoEvents()
+            rc = True
+        End If
+        Return rc
+    End Function
+
+
+    Public Shared Function saveImage(ByVal sceneData As SceneshotsHolder) As Boolean
+        Return saveImage(sceneData, False)
+    End Function
+
+
+    'Generiert den Filename für das finale Image
+    Private Shared Function generateFilePathForFinalSceneshots(ByVal config As Configuration, ByVal movieinfo As MovieInfo) As String
+        Dim filePath As String = Nothing
+        Dim fileName As String = Nothing
+
+        Select Case config.naming
+            Case ImageUtil.Naming.Filename
+                fileName = movieinfo.getFileName
+            Case ImageUtil.Naming.Filepath
+                fileName = movieinfo.getCompleteName.Replace(Path.DirectorySeparatorChar, "-").Replace(Path.VolumeSeparatorChar, "")
+        End Select
+
+        Select Case config.savemode
+            Case SaveMode.SINGLE_PATH
+                filePath = config.savepath + Path.DirectorySeparatorChar + fileName + getExtensionFromImageFormat(config.imageFormat)
+            Case SaveMode.SOURCE_PATH
+                filePath = New FileInfo(movieinfo.getCompleteName).DirectoryName + Path.DirectorySeparatorChar + fileName + getExtensionFromImageFormat(config.imageFormat)
+
+        End Select
+
+        Return filePath
+
+    End Function
+
+
+
+
+
+
+    'Speichert den Sceneshot
+    Public Shared Function saveImage(ByVal sceneData As SceneshotsHolder, ByVal batch As Boolean) As Boolean
+        Dim rc As Boolean = False
+        Dim filename As String = Nothing
+        Dim showDialog As Boolean = False
 
         Dim config As Configuration = Configuration.getInstance
-		Dim savedMode As Integer = config.savemode
+        Dim savedMode As Integer = config.savemode
 
-		'Batch hat kein ASK
-		If batch And savedMode = SaveMode.ASK Then
-			savedMode = SaveMode.SOURCE_PATH
-		End If
+        'Batch hat kein ASK
+        If batch And savedMode = SaveMode.ASK Then
+            savedMode = SaveMode.SOURCE_PATH
+        End If
 
-		'Dateinamen genereieren
-		filename = generateFilePathForFinalSceneshots(config, sceneData.movieinfo)
+        'Dateinamen genereieren
+        filename = generateFilePathForFinalSceneshots(config, sceneData.movieinfo)
 
-		If String.IsNullOrEmpty(filename) Then
-			showDialog = True
-		End If
+        If String.IsNullOrEmpty(filename) Then
+            showDialog = True
+        End If
 
-		If showDialog Then
-			Dim dlg As New SaveFileDialog
-			dlg.Title = "Save Image"
-			dlg.Filter = FILEOPEN_IMAGE_PATTERN
-			Try
-				'Set Dir
-				If (My.Settings.use_lastsavedpath) Then
-					dlg.InitialDirectory = My.Settings.lastsavedpath
-				Else
-					dlg.InitialDirectory = System.IO.Path.GetDirectoryName(sceneData.movieinfo.getCompleteName())
-				End If
+        If showDialog Then
+            Dim dlg As New SaveFileDialog
+            dlg.Title = "Save Image"
+            dlg.Filter = FILEOPEN_IMAGE_PATTERN
+            Try
+                'Set Dir
+                If (My.Settings.use_lastsavedpath) Then
+                    dlg.InitialDirectory = My.Settings.lastsavedpath
+                Else
+                    dlg.InitialDirectory = System.IO.Path.GetDirectoryName(sceneData.movieinfo.getCompleteName())
+                End If
 
-				If (My.Settings.gen_filenames) Then
-					'Set File
-					dlg.FileName = sceneData.movieinfo.getFileName + getExtensionFromImageFormat(config.imageFormat)
-				End If
+                If (My.Settings.gen_filenames) Then
+                    'Set File
+                    dlg.FileName = sceneData.movieinfo.getFileName + getExtensionFromImageFormat(config.imageFormat)
+                End If
 
-			Catch ex As Exception
-				Console.WriteLine(ex.Message)
-			End Try
-			If dlg.ShowDialog() = DialogResult.OK And Not String.IsNullOrEmpty(dlg.FileName) Then
-				filename = dlg.FileName
-			End If
-		End If
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            If dlg.ShowDialog() = DialogResult.OK And Not String.IsNullOrEmpty(dlg.FileName) Then
+                filename = dlg.FileName
+            End If
+        End If
 
-		If Not String.IsNullOrEmpty(filename) Then
-			Dim imageEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
-			Dim params As EncoderParameters = New EncoderParameters(2)
-			params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
-			If config.progressive Then
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
-			Else
-				params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
-			End If
-			Application.DoEvents()
-			sceneData.sceneshot.Save(filename, imageEncoder, params)
-			My.Settings.use_count = My.Settings.use_count + 1
-			My.Settings.Save()
-			Application.DoEvents()
-			rc = True
-		End If
-		Return rc
-	End Function
+        If Not String.IsNullOrEmpty(filename) Then
+            Dim imageEncoder As ImageCodecInfo = ImageUtil.GetEncoder(getImageFormatFromEnumImageFormat(config.imageFormat))
+            Dim params As EncoderParameters = New EncoderParameters(2)
+            params.Param(0) = New EncoderParameter(Encoder.Quality, config.quality)
+            If config.progressive Then
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderProgressive.ToString())
+            Else
+                params.Param(1) = New EncoderParameter(Encoder.RenderMethod, EncoderValue.RenderNonProgressive.ToString())
+            End If
+            Application.DoEvents()
+            sceneData.sceneshot.Save(filename, imageEncoder, params)
+            My.Settings.use_count = My.Settings.use_count + 1
+            My.Settings.Save()
+            Application.DoEvents()
+            rc = True
+        End If
+        Return rc
+    End Function
 
 
-	Private Shared Function getExtensionFromImageFormat(ByVal format As ImageTyp) As String
-		Select Case format
-			Case ImageTyp.JPG
-				Return ".jpg"
-			Case ImageTyp.BMP
-				Return ".bmp"
-			Case ImageTyp.PNG
-				Return ".png"
-			Case ImageTyp.TIFF
-				Return ".tiff"
-			Case Else
-				Return Nothing
-		End Select
-	End Function
+    Private Shared Function getExtensionFromImageFormat(ByVal format As ImageTyp) As String
+        Select Case format
+            Case ImageTyp.JPG
+                Return ".jpg"
+            Case ImageTyp.BMP
+                Return ".bmp"
+            Case ImageTyp.PNG
+                Return ".png"
+            Case ImageTyp.TIFF
+                Return ".tiff"
+            Case Else
+                Return Nothing
+        End Select
+    End Function
 
-	Private Shared Function getImageFormatFromEnumImageFormat(ByVal format As ImageTyp) As System.Drawing.Imaging.ImageFormat
-		Select Case format
-			Case ImageTyp.JPG
-				Return System.Drawing.Imaging.ImageFormat.Jpeg
-			Case ImageTyp.BMP
-				Return System.Drawing.Imaging.ImageFormat.Bmp
-			Case ImageTyp.PNG
-				Return System.Drawing.Imaging.ImageFormat.Png
-			Case ImageTyp.TIFF
-				Return System.Drawing.Imaging.ImageFormat.Tiff
-			Case Else
-				Return Nothing
-		End Select
-	End Function
+    Private Shared Function getImageFormatFromEnumImageFormat(ByVal format As ImageTyp) As System.Drawing.Imaging.ImageFormat
+        Select Case format
+            Case ImageTyp.JPG
+                Return System.Drawing.Imaging.ImageFormat.Jpeg
+            Case ImageTyp.BMP
+                Return System.Drawing.Imaging.ImageFormat.Bmp
+            Case ImageTyp.PNG
+                Return System.Drawing.Imaging.ImageFormat.Png
+            Case ImageTyp.TIFF
+                Return System.Drawing.Imaging.ImageFormat.Tiff
+            Case Else
+                Return Nothing
+        End Select
+    End Function
 
-	Public Shared Function generateSceneShotFromFile(ByVal file As String, ByVal config As Configuration, ByVal label As ToolStripStatusLabel) As SceneshotsHolder
+    Public Shared Function generateSceneShotFromFile(ByVal file As String, ByVal config As Configuration, ByVal label As ToolStripStatusLabel) As SceneshotsHolder
 
-		Dim oMedia As DexterLib.MediaDet = New DexterLib.MediaDet()
-		Dim oMovieInfo As MovieInfo = New MovieInfo(file)
-		oMedia.Filename = file
+        Dim oMedia As DexterLib.MediaDet = New DexterLib.MediaDet()
+        Dim oMovieInfo As MovieInfo = New MovieInfo(file)
+        oMedia.Filename = file
         Dim labelText As String = label.Text
         Dim anzClips As Integer = 0
         Dim sceneList As New BindingList(Of Sceneshot)
@@ -809,11 +809,11 @@ Public Class ImageUtil
         Return dataholder
     End Function
 
-	'Erstellt ein Screenshot von einem Movie ab Postion und mit Dimensionen
-	Public Shared Function createSceneshot(ByVal media As DexterLib.MediaDet, ByVal position As Double, ByVal width As Integer, ByVal height As Integer) As Sceneshot
-		Dim x As Integer = width
-		Dim y As Integer = height
-		Dim bmp As Bitmap = Nothing
+    'Erstellt ein Screenshot von einem Movie ab Postion und mit Dimensionen
+    Public Shared Function createSceneshot(ByVal media As DexterLib.MediaDet, ByVal position As Double, ByVal width As Integer, ByVal height As Integer) As Sceneshot
+        Dim x As Integer = width
+        Dim y As Integer = height
+        Dim bmp As Bitmap = Nothing
 
         ' test internal engine
         Try
@@ -852,18 +852,18 @@ Public Class ImageUtil
             s = New Sceneshot(bmp, position)
         End If
         Return s
-	End Function
+    End Function
 
 
-	Private Shared Function setGraphicsMode(ByVal g As Graphics, ByVal highQuality As Boolean)
-		If highQuality Then
-			g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality
-			g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
-			g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality
-		Else
-			g.SmoothingMode = SmoothingMode.AntiAlias
-		End If
-		Return g
-	End Function
+    Private Shared Function setGraphicsMode(ByVal g As Graphics, ByVal highQuality As Boolean)
+        If highQuality Then
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality
+        Else
+            g.SmoothingMode = SmoothingMode.AntiAlias
+        End If
+        Return g
+    End Function
 
 End Class
